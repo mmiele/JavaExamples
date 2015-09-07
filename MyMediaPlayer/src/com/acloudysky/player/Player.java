@@ -16,14 +16,24 @@ public class Player extends BorderPane {
 	// Media pane
 	Pane mpane;
 	
+	
 	public Player(String file){
 		media = new Media(file);
 		player = new MediaPlayer(media);
 		view = new MediaView(player);
 		
+		view.setFitWidth(600);
+		view.setFitHeight(425);
+		
+//		view.setTranslateX(view.getFitWidth() / 2  - 200); 
+//		view.setTranslateY(view.getFitHeight() / 2  - 200);
+//		view.setScaleX(2); view.setScaleY(1);
+		
 		mpane = new Pane();
 		mpane.getChildren().add(view);
 	
+		mpane.setMaxSize(600, 425);
+		
 		setCenter(mpane);
 		
 		bar = new MediaBar(player);
